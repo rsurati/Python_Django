@@ -1,0 +1,43 @@
+    
+{% extends "quizbase.html" %}
+{% block content %}
+<center>
+<div class="containner col-lg-4 col-sm-8 col-md-4 ">
+	<div class="card">
+		<div class="card-header bg-primary text-left text-bark">
+		<h3>REGISTER</h3>
+		</div>
+		<div class="card-body">
+			{%for q in quiz %}
+			<form action="{% url 'tech:updateinfo' %}" method="POST">
+				{% csrf_token %}
+				<div class="form-group text-left">
+				Quiz Name
+				<input type="text" name="qname" class="form-control" required value="{{q.Quiz_Name}}"/>
+				</div>
+				<div>
+				<input type="hidden" name="qid" value="{{q.id}}">
+				</div>
+				<div class="form-group text-left">
+				Technology
+				<select class="form-control" name="tech">
+				{% for t in tech %}
+				
+					<option value="{{t.id}}">{{t.Tech_Name}}</option>
+							
+				
+				{% endfor%}
+				</select>
+				</div>
+				
+				<div class="form-group">
+				<Button class="btn btn-primary btn-block">Submit</Button>
+				</div>
+			{%endfor%}
+				
+			</form>
+		</div>
+	<div>
+</div>
+
+{% endblock %}

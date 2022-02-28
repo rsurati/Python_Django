@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+{% block content %}
+<center>
+<div class="containner col-lg-4 col-sm-8 col-md-4 ">
+
+	<div class="card">
+		<div class="card-header bg-primary text-left text-bark">
+		<h3>LOG IN<a href="{% url "login:register" %}" class="text-dark"> |  REGISTER</a></h3>
+		</div>
+		<div class="card-body">
+			<form action="{% url 'tech:login' %}" method="POST">
+				{% csrf_token %}
+				<div class="form-group text-left">
+				User Name
+				<input type="text" name="user" class="form-control" required />
+				</div>
+				<div class="form-group text-left">
+				Password
+				<input type="password" name="password" class="form-control" required/>
+				</div>
+				<div class="form-group">
+				<Button class="btn btn-primary btn-block">Submit</Button>
+				</div>
+				<a href="{% url 'main' %}">home</a>
+				<a href="{% url 'login:forgot'%}">Forgot Password?</a>
+				
+			</form>
+		</div>
+	<div>
+</div>
+
+{% endblock %}

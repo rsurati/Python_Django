@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+<body background="{% static 'images/back.jpg' %}" style="background-attachment: fixed;background-size: cover;">
+<center>
+	<div class="container text-dark text-capitalize">			
+	<h1>Tech Quiz</h1>
+	<h1><span class="badge badge-primary "><a href="{% url 'login:login' %}" class="text-white">Login & Registration</a></span></h1>
+	<h1>Wel-Come</h1>
+	</div>
+</body>
+{% endblock %}

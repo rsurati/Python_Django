@@ -1,0 +1,23 @@
+{% extends "quizPlay.html" %}
+{% block content %}
+<div class="alert alert-success" role="alert">
+ all quiz
+</div>
+<div class="container text-left">
+	<h1>Please select Quiz</h1>
+<div class="row">
+  	{%for u in quiz %}
+      <div class="card col-sm-10 col-md-4 col-lg-4">
+	     <div class="card card-header">
+        <h1>{{u.Quiz_Name}}</h1>
+       </div>
+       <div class="card card-body">
+        <p>if you see the quiz please click on Play quiz</p>
+	      <a href="{% url 'play:play'%}?quizid={{u.id}}" class="btn btn-success">Play Quiz</a></td>
+	      </div>
+	   </div>
+	{%endfor%}
+
+</div>
+</div>
+{% endblock %}

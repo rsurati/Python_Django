@@ -1,0 +1,28 @@
+{% extends "quizplay.html" %}
+{% block content %}
+<div class="alert alert-success" role="alert">
+ all played Quiz and thier Scrore
+</div>
+<div class="container text-left">
+	<h1>ALL solution</h1>
+  <h3>Your Score :{{score}}</h3>
+	<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">Question</th>
+      <th scope="col">Answer</th>
+     
+    </tr>
+  </thead>
+  <tbody>
+  	{%for u in question %}
+		<tr>
+	      <td>{{u.Question_Question}}</td>
+	      <td>{{u.Question_Answer}}</td>
+    </tr>
+      {%endfor%}
+  </tbody>
+</table>
+<a href="{% url 'play:record'%}" class="btn btn-info">Home</a>
+</div>
+{% endblock %}

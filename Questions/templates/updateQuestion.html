@@ -1,0 +1,49 @@
+    
+{% extends "quizbase.html" %}
+{% block content %}
+<center>
+<div class="containner col-lg-4 col-sm-8 col-md-4 ">
+	<div class="card">
+		<div class="card-header bg-primary text-left text-bark">
+		<h3>Update Question</a></h3>
+		</div>
+		<div class="card-body">
+			{%for d in quest %}
+			<form action="{% url 'ques:updateqestinfo' %}" method="POST">
+				{% csrf_token %}
+				<div class="form-group text-left">
+				Question
+				<input type="text" name="qname" class="form-control" value="{{d.Question_Question}}" required />
+				</div>
+				<div class="form-group text-left">
+				Option 1
+				<input type="text" name="op1" class="form-control" value="{{d.Question_Option_1}}" required />
+				</div>
+				<div class="form-group text-left">
+				Option 2
+				<input type="text" name="op2" class="form-control" value="{{d.Question_Option_2}}" required />
+				</div>
+				<div class="form-group text-left">
+				Option 3
+				<input type="text" name="op3" class="form-control" value="{{d.Question_Option_3}}" required />
+				</div>
+				<div class="form-group text-left">
+				Option 4
+				<input type="text" name="op4" class="form-control" value="{{d.Question_Option_4}}" required />
+				</div>
+				<div class="form-group text-left">
+				Ansewer
+				<input type="text" name="answer" class="form-control" value="{{d.Question_Answer}}"	 required />
+				<input type="hidden" name="qeid" value="{{d.id}}">
+				</div>
+				<div class="form-group">
+				<Button class="btn btn-primary btn-block">Submit</Button>
+				</div>
+			{%endfor%}
+				
+			</form>
+		</div>
+	<div>
+</div>
+
+{% endblock %}

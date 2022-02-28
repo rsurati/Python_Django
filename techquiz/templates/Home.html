@@ -1,0 +1,15 @@
+{% extends "quizbase.html" %}
+{% block content %}
+
+<div class="container m-5">
+	<div class="card">
+		<div class="card-header"><a href="{%url 'user:manage'%}"><h1>MANAGE USER</a></h1></div>
+	</div><br><br>
+	<div class="card">
+		<a href="{%url 'technology:manage'%}"><div class="card-header"><h1>MANAGE TECHNOLGY</h1></div></a>
+	</div><br><br>
+	<div class="card">
+		<a href="{%url 'tech:manage'%}"><div class="card-header"><h1>MANAGE QUIZ</h1></div></a>
+	</div>
+</div>
+{% endblock %}

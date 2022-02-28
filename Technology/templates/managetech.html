@@ -1,0 +1,33 @@
+{% extends "quizbase.html" %}
+{% block content %}
+<div class="alert alert-success" role="alert">
+ all tech
+</div>
+<div class="container text-left">
+	<h1>ALL tech</h1>
+	<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Name</th>
+      <th scope="col">Adder_ID</th>
+      <th scope="col">Update</th>
+      <th scope="col">Delete</th>
+    </tr>
+  </thead>
+  <tbody>
+  	{%for t in techs %}
+		<tr>
+	      <th scope="row">{{t.id}}</th>
+	      <td>{{t.Tech_Name}}</td>
+	      <td>{{t.Tech_Adder_id}}</td>
+	      <td><a href="{% url 'technology:update'%}?techid={{t.id}}" class="btn btn-success">Update</a></td>
+	      <td><a href="{% url 'technology:delete'%}?techid={{t.id}}" class="btn btn-danger">Delete</a></td>
+	    </tr>
+	{%endfor%}
+  </tbody>
+</table>
+<a href="{% url 'technology:add' %}" class="btn btn-success">New Tech</a>
+
+</div>
+{% endblock %}

@@ -1,0 +1,30 @@
+{% extends "quizPlay.html" %}
+{% block content %}
+<div class="alert alert-success" role="alert">
+ all quiz
+</div>
+<div class="container text-left">
+	<h1>Please Select answer</h1>
+	<form action="{% url 'play:validateAnswer'%}" method="POST">
+    <div class="container"><input type="checkbox" name="" onclick="setTimeout(function(){alert('you time is out');},3000);">Enable Limeted Time</div>
+		{% csrf_token %}
+    <div class="card container">
+  	{%for u in quest %}
+      
+	   <div class="card card-header ">
+       <h1>{{u.Question_Question}}</h1>
+       </div>
+       <div class="card card-body">
+       	<input type="radio" style="width:30px;height:30px;" name="{{u.id}}" checked="true" value="{{u.Question_Option_1}}">{{u.Question_Option_1}}
+       	<input type="radio" style="width:30px;height:30px;" name="{{u.id}}" value="{{u.Question_Option_2}}">{{u.Question_Option_2}}
+       	<input type="radio" style="width:30px;height:30px;" name="{{u.id}}" value="{{u.Question_Option_3}}">{{u.Question_Option_3}}
+       	<input type="radio" style="width:30px;height:30px;" name="{{u.id}}" value="{{u.Question_Option_4}}">{{u.Question_Option_4}}
+	   </div>
+	   <br>
+	{%endfor%}
+<input type="hidden" name="qid" value="{{qid}}">
+<input type="submit" name="submit" value="Submit" class="btn btn-info">
+</div>
+</form>
+</div>
+{% endblock %}

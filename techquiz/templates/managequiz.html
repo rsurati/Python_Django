@@ -1,0 +1,37 @@
+{% extends "quizbase.html" %}
+{% block content %}
+<div class="alert alert-success" role="alert">
+ all quiz
+</div>
+<div class="container text-left">
+	<h1>ALL Quiz</h1>
+	<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Name</th>
+      <th scope="col">Adder_Id</th>
+      <th scope="col">Tech</th>
+      <th scope="col">Update</th>
+      <th scope="col">Delete</th>
+      <th scope="col">Manage Question</th>
+    </tr>
+  </thead>
+  <tbody>
+  	{%for u in quiz %}
+		<tr>
+	      <th scope="row">{{u.id}}</th>
+	      <td>{{u.Quiz_Name}}</td>
+	      <td>{{u.Quiz_Adder.id}}-{{u.Quiz_Adder.User_Name}}</td>
+        <td>{{u.Quiz_Tech.id}}-{{u.Quiz_Tech.Tech_Name}}</td>
+	      <td><a href="{% url 'tech:update'%}?qid={{u.id}}" class="btn btn-success">Update</a></td>
+	      <td><a href="{% url 'tech:delete'%}?qid={{u.id}}" class="btn btn-danger">Delete</a></td>
+        <td><a href="{% url 'ques:manage'%}?quizid={{u.id}}" class="btn btn-info">Manage Qestions</a></td>
+	    </tr>
+	{%endfor%}
+  </tbody>
+</table>
+<a href="{% url 'tech:addquiz' %}" class="btn btn-success">New User</a>
+
+</div>
+{% endblock %}

@@ -1,0 +1,23 @@
+{% extends "quizPlay.html" %}
+{% block content %}
+<div class="alert alert-success" role="alert">
+ all quiz
+</div>
+<div class="container text-left">
+	<h1>Please select Quiz</h1>
+<div class="row">
+  	{%for u in tech %}
+      <div class="card col-sm-10 col-md-4 col-lg-4">
+	     <div class="card card-header">
+        <h1>{{u.Tech_Name}}</h1>
+       </div>
+       <div class="card card-body">
+        <p>if you see the quiz please click on show quiz</p>
+	      <a href="{% url 'play:selectQuiz'%}?techid={{u.id}}" class="btn btn-success">Show Quiz Topics</a></td>
+	      </div>
+	   </div>
+	{%endfor%}
+
+</div>
+</div>
+{% endblock %}

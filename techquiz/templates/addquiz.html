@@ -1,0 +1,40 @@
+{% extends "quizbase.html" %}
+{% block content %}
+<center>
+
+<h1><span class="badge badge-primary">
+Add Quiz Detail</span></h1>
+
+	<div class="card-body container col-sm-10 col-md-4 col-lg-4">
+			<form action="{% url 'tech:addquizdetatil' %}" method="POST">
+				{% csrf_token %}
+				<div class="form-group text-left">
+				Quiz Name
+				<input type="text" name="qname" class="form-control" required />
+				</div>
+				<div class="form-group text-left">
+				Technology
+				<select class="form-control" name="tech">
+				{% for t in tech %}
+				
+					<option value="{{t.id}}">{{t.Tech_Name}}</option>
+							
+				
+				{% endfor%}
+				</select>
+				</div>
+				
+				<div class="form-group">
+				<Button class="btn btn-primary btn-block">Submit</Button>
+				</div>
+				
+				
+			</form>
+		</div>
+	<div>
+</div>
+
+
+
+
+{% endblock %}
